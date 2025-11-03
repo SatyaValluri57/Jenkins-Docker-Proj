@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		    <title>CurryPoint - South Indian Delights</title>
+	</head>
+	<body>
+		    <h1>Welcome to CurryPoint</h1>
+		        <form method="post">
+				        Your Name: <input type="text" name="user" required>
+					        <br><br>
+						        Select Dish:
+							        <select name="dish" required>
+									            {% for dish in dishes %}
+										                <option value="{{ dish.name }}">{{ dish.name }}</option>
+												            {% endfor %}
+													            </select>
+														            <button type="submit">Order</button>
+															        </form>
+																    {% if message %}
+																        <p>{{ message }}</p>
+																	    {% endif %}
+
+																	        <h2>Menu</h2>
+																		    <div>
+																			            {% for dish in dishes %}
+																				            <div style="display:inline-block; margin:20px;">
+																						                <img src="{{ url_for('static', filename='images/' + dish.image) }}" width="200">
+																								            <p>{{ dish.name }}</p>
+																									            </div>
+																										            {% endfor %}
+																											        </div>
+	</body>
+</html>
+
